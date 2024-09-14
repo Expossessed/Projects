@@ -10,7 +10,7 @@ public class Haiku extends Poem{
    
    @Override
    public void display(){
-      System.out.println("--Couplet--");
+      System.out.println("--Haiku--");
       super.display();
    }
 
