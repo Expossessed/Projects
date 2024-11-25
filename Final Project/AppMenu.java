@@ -15,12 +15,14 @@ public class AppMenu {
     }
 
     public void display(){
+        //FRAME
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.setSize(1015,798);
         frame.setLayout(null);
 
+        //HEADER
         JPanel header = new JPanel();
         header.setOpaque(false);
         JButton burger = new JButton();
@@ -77,6 +79,7 @@ public class AppMenu {
         headerlabel.setHorizontalAlignment(JLabel.CENTER);
         header.add(headerlabel, BorderLayout.CENTER);
         
+        //BODY
         JPanel menu = new JPanel();
         menu.setBounds(0,60,1000,700);
         menu.setLayout(new BorderLayout());
@@ -92,30 +95,76 @@ public class AppMenu {
         menu.add(menulabel, BorderLayout.CENTER);
 
 
+        JPanel list = new JPanel();
+        list.setBounds(70,115,400,600);
+        list.setLayout(new BorderLayout());
+        list.setBackground(Color.WHITE);
+
+        JPanel food1 = new JPanel();
+        JPanel food2 = new JPanel();
+        JPanel food3 = new JPanel();
+        JPanel food4 = new JPanel();
+        JPanel food5 = new JPanel();
+        JPanel food6 = new JPanel();
+        JPanel food7 = new JPanel();
+        JPanel food8 = new JPanel();
+        JPanel food9 = new JPanel();
+        JPanel food10 = new JPanel();
+
+        food1.setBounds(0,0,400,60);
+        food1.setLayout(null);
+        food1.setBackground(Color.BLUE);
+        food2.setBounds(0,60,400,60);
+        food2.setLayout(null);
+        food2.setBackground(Color.GREEN);
+        food3.setBounds(0,120,400,60);
+        food3.setLayout(null);
+        food3.setBackground(Color.BLUE);
+        food4.setBounds(0,180,400,60);
+        food4.setLayout(null);
+        food4.setBackground(Color.GREEN);
+        food5.setBounds(0,240,400,60);
+        food5.setLayout(null);
+        food5.setBackground(Color.BLUE);
+        food6.setBounds(0,300,400,60);
+        food6.setLayout(null);
+        food6.setBackground(Color.GREEN);
+        food7.setBounds(0,360,400,60);
+        food7.setLayout(null);
+        food7.setBackground(Color.BLUE);
+        food8.setBounds(0,420,400,60);
+        food8.setLayout(null);
+        food8.setBackground(Color.GREEN);
+        food9.setBounds(0,480,400,60);
+        food9.setLayout(null);
+        food9.setBackground(Color.BLUE);
+        food10.setBounds(0,540,400,60);
+        food10.setLayout(null);
+        food10.setBackground(Color.GREEN);
+
+
+        list.add(food1);
+        list.add(food2);
+        list.add(food3);
+        list.add(food4);
+        list.add(food5);
+        list.add(food6);
+        list.add(food7);
+        list.add(food8);
+        list.add(food9);
+        list.add(food10);
+
+        JPanel total = new JPanel();
+        total.setBounds(625,115,300,500);
+        total.setLayout(new BorderLayout());
+        total.setBackground(Color.WHITE);
+
+
+        frame.add(total);
+        frame.add(list);
         frame.add(menu);
         frame.add(header);
-
-        /*JButton button = new JButton();
-        button.setBounds(400, 700 , 200, 50);
-        button.setText("Place Order");
-        button.setFocusable(false);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setVerticalTextPosition(JButton.BOTTOM);
-        button.setFont(new Font("Times New Roman", Font.BOLD, 25));
-        button.setForeground(Color.BLUE);
-        button.setBackground(Color.MAGENTA);
-        button.setBorder(BorderFactory.createEtchedBorder());
         
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "Order Placed!");
-            }
-        });
-        
-
-        frame.add(button);*/
-
         frame.setVisible(true);
         
         
