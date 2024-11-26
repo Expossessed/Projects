@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -125,7 +128,7 @@ public class AppMenu {
         tArea1.setEditable(false);
         tArea1.setOpaque(false);
         tArea1.setFocusable(false);
-        tArea1.setFont(new Font("Times New Roman", 0, 20));
+        tArea1.setFont(new Font("Comic Sans MS", 0, 20));
         food1.add(tArea1);
         JButton add1 = new JButton();
         add1.setIcon(resizedADD);
@@ -152,7 +155,7 @@ public class AppMenu {
         tArea2.setEditable(false);
         tArea2.setOpaque(false);
         tArea2.setFocusable(false);
-        tArea2.setFont(new Font("Times New Roman", 0, 20));
+        tArea2.setFont(new Font("Comic Sans MS", 0, 20));
         food2.add(tArea2);
         JButton add2 = new JButton();
         add2.setIcon(resizedADD);
@@ -179,7 +182,7 @@ public class AppMenu {
         tArea3.setEditable(false);
         tArea3.setOpaque(false);
         tArea3.setFocusable(false);
-        tArea3.setFont(new Font("Times New Roman", 0, 20));
+        tArea3.setFont(new Font("Comic Sans MS", 0, 20));
         food3.add(tArea3);
         JButton add3 = new JButton();
         add3.setIcon(resizedADD);
@@ -206,7 +209,7 @@ public class AppMenu {
         tArea4.setEditable(false);
         tArea4.setOpaque(false);
         tArea4.setFocusable(false);
-        tArea4.setFont(new Font("Times New Roman", 0, 20));
+        tArea4.setFont(new Font("Comic Sans MS", 0, 20));
         food4.add(tArea4);
         JButton add4 = new JButton();
         add4.setIcon(resizedADD);
@@ -233,7 +236,7 @@ public class AppMenu {
         tArea5.setEditable(false);
         tArea5.setOpaque(false);
         tArea5.setFocusable(false);
-        tArea5.setFont(new Font("Times New Roman", 0, 20));
+        tArea5.setFont(new Font("Comic Sans MS", 0, 20));
         food5.add(tArea5);
         JButton add5 = new JButton();
         add5.setIcon(resizedADD);
@@ -260,7 +263,7 @@ public class AppMenu {
         tArea6.setEditable(false);
         tArea6.setOpaque(false);
         tArea6.setFocusable(false);
-        tArea6.setFont(new Font("Times New Roman", 0, 20));
+        tArea6.setFont(new Font("Comic Sans MS", 0, 20));
         food6.add(tArea6);
         JButton add6 = new JButton();
         add6.setIcon(resizedADD);
@@ -287,7 +290,7 @@ public class AppMenu {
         tArea7.setEditable(false);
         tArea7.setOpaque(false);
         tArea7.setFocusable(false);
-        tArea7.setFont(new Font("Times New Roman", 0, 20));
+        tArea7.setFont(new Font("Comic Sans MS", 0, 20));
         food7.add(tArea7);
         JButton add7 = new JButton();
         add7.setIcon(resizedADD);
@@ -314,7 +317,7 @@ public class AppMenu {
         tArea8.setEditable(false);
         tArea8.setOpaque(false);
         tArea8.setFocusable(false);
-        tArea8.setFont(new Font("Times New Roman", 0, 20));
+        tArea8.setFont(new Font("Comic Sans MS", 0, 20));
         food8.add(tArea8);
         JButton add8 = new JButton();
         add8.setIcon(resizedADD);
@@ -341,7 +344,7 @@ public class AppMenu {
         tArea9.setEditable(false);
         tArea9.setOpaque(false);
         tArea9.setFocusable(false);
-        tArea9.setFont(new Font("Times New Roman", 0, 20));
+        tArea9.setFont(new Font("Comic Sans MS", 0, 20));
         food9.add(tArea9);
         JButton add9 = new JButton();
         add9.setIcon(resizedADD);
@@ -368,7 +371,7 @@ public class AppMenu {
         tArea10.setEditable(false);
         tArea10.setOpaque(false);
         tArea10.setFocusable(false);
-        tArea10.setFont(new Font("Times New Roman", 0, 20));
+        tArea10.setFont(new Font("Comic Sans MS", 0, 20));
         food10.add(tArea10);
         JButton add10 = new JButton();
         add10.setIcon(resizedADD);
@@ -402,8 +405,140 @@ public class AppMenu {
 
         JPanel total = new JPanel();
         total.setBounds(625,115,300,500);
-        total.setLayout(new BorderLayout());
+        total.setLayout(null);
         total.setBackground(Color.WHITE);
+        total.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+        
+        MatteBorder sideborders = new MatteBorder(0,2,0,2,Color.BLACK);
+        JPanel Tpanel = new JPanel();
+        Tpanel.setBounds(0, 0, 300, 60);
+        Tpanel.setLayout(null);
+        Tpanel.setBorder(sideborders);
+        Tpanel.setBackground(Color.WHITE);
+        JPanel Orders = new JPanel();   
+        Orders.setBounds(0, 70, 300, 280);
+        Orders.setLayout(null);
+        Orders.setBorder(sideborders);
+        Orders.setBackground(Color.WHITE);
+        JPanel Tamount = new JPanel();
+        Tamount.setBounds(0, 350, 300, 130);
+        Tamount.setLayout(null);
+        Tamount.setBorder(sideborders);
+        Tamount.setBackground(Color.WHITE);
+        
+
+        
+        JLabel Title = new JLabel();
+        Title.setBounds(5, 5, 200, 60);
+        Title.setLayout(null);
+        Title.setOpaque(false);
+        Title.setHorizontalAlignment(JLabel.LEFT);
+        Title.setText("Total");
+        Title.setFont(new Font("Helvetica", 0, 30));
+        
+        JLabel order1 = new JLabel();
+        order1.setBounds(5, 5, 200, 60);
+        order1.setLayout(null);
+        order1.setOpaque(false);
+        order1.setHorizontalAlignment(JLabel.LEFT);
+        order1.setVerticalTextPosition(JLabel.CENTER);
+        order1.setText("order1");
+        order1.setFont(new Font("Helvetica", 0, 20));
+
+        JLabel price1 = new JLabel();
+        price1.setBounds(180, 5, 100, 60);
+        price1.setLayout(null);
+        price1.setOpaque(false);
+        price1.setHorizontalAlignment(JLabel.RIGHT);
+        price1.setVerticalTextPosition(JLabel.CENTER);
+        price1.setText("price1");
+        price1.setFont(new Font("Helvetica", 0, 18));
+
+        JLabel order2 = new JLabel();
+        order2.setBounds(5, 50, 200, 60);
+        order2.setLayout(null);
+        order2.setOpaque(false);
+        order2.setHorizontalAlignment(JLabel.LEFT);
+        order2.setVerticalTextPosition(JLabel.CENTER);
+        order2.setText("order2");
+        order2.setFont(new Font("Helvetica", 0, 20));
+
+        JLabel price2 = new JLabel();
+        price2.setBounds(180, 50, 100, 60);
+        price2.setLayout(null);
+        price2.setOpaque(false);
+        price2.setHorizontalAlignment(JLabel.RIGHT);
+        price2.setVerticalTextPosition(JLabel.CENTER);
+        price2.setText("price2");
+        price2.setFont(new Font("Helvetica", 0, 18));
+
+        JLabel order3 = new JLabel();
+        order3.setBounds(5, 95, 200, 60);
+        order3.setLayout(null);
+        order3.setOpaque(false);
+        order3.setHorizontalAlignment(JLabel.LEFT);
+        order3.setVerticalTextPosition(JLabel.CENTER);
+        order3.setText("order3");
+        order3.setFont(new Font("Helvetica", 0, 20));
+
+        JLabel price3 = new JLabel();
+        price3.setBounds(180, 95, 100, 60);
+        price3.setLayout(null);
+        price3.setOpaque(false);
+        price3.setHorizontalAlignment(JLabel.RIGHT);
+        price3.setVerticalTextPosition(JLabel.CENTER);
+        price3.setText("price3");
+        price3.setFont(new Font("Helvetica", 0, 18));
+
+        JLabel Totalamt = new JLabel();
+        Totalamt.setBounds(5, 5, 290, 60);
+        Totalamt.setLayout(null);
+        Totalamt.setOpaque(false);
+        Totalamt.setHorizontalAlignment(JLabel.LEFT);
+        Totalamt.setVerticalTextPosition(JLabel.CENTER);
+        Totalamt.setText("Total Amount");
+        Totalamt.setFont(new Font("Helvetica", 0, 23));
+        MatteBorder Totalamtbrdr = new MatteBorder(3,0,0,0,Color.GRAY);
+        Totalamt.setBorder(Totalamtbrdr);
+
+        JLabel Totalprce = new JLabel();
+        Totalprce.setBounds(180, 5, 100, 60);
+        Totalprce.setLayout(null);
+        Totalprce.setOpaque(false);
+        Totalprce.setHorizontalAlignment(JLabel.RIGHT);
+        Totalprce.setVerticalTextPosition(JLabel.CENTER);
+        Totalprce.setText("P0.00");
+        Totalprce.setFont(new Font("Helvetica", 0, 20));
+
+        JButton plcOrder = new JButton();
+        plcOrder.setBounds(160,75,120,40);
+        plcOrder.setText("Place Order");
+        plcOrder.setBackground(new Color(255,149,0));
+        plcOrder.setForeground(new Color(101,85,143));
+        plcOrder.setBorderPainted(false);
+        plcOrder.setFocusPainted(true);
+        plcOrder.setFocusable(false);
+        plcOrder.setHorizontalTextPosition(JButton.CENTER);
+        plcOrder.setVerticalTextPosition(JButton.CENTER);
+        plcOrder.setFont(new Font("Helvetica", Font.BOLD, 15));
+        
+
+
+
+
+        Tpanel.add(Title);
+        Orders.add(order1);
+        Orders.add(price1);
+        Orders.add(order2);
+        Orders.add(price2);
+        Orders.add(order3);
+        Orders.add(price3);
+        Tamount.add(Totalamt);
+        Tamount.add(Totalprce);
+        Tamount.add(plcOrder);
+        total.add(Tpanel);
+        total.add(Orders);
+        total.add(Tamount);
 
 
         frame.add(total);
