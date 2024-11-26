@@ -3,6 +3,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,12 +13,28 @@ import java.awt.geom.RoundRectangle2D;
 public class AppMenu {
     protected ArrayList<String> menu;
     protected ArrayList<Double> price;
+    private static double orderTotal = 0.0;
+    private static JLabel totalLabel = new JLabel("Total: P0.00");
+    
     public AppMenu(){
         menu = new ArrayList<String>();
         price = new ArrayList<Double>();
     }
+    private static JTextArea orderDetailsArea = new JTextArea();
+    
+    private static void addToOrder(String item, double price) {
+        orderDetailsArea.append(item + " - P" + price + "\n");
+        orderTotal += price;
+        totalLabel.setText(String.format("%.2f", orderTotal));
+    }
 
     public void display(){
+        JPanel orderPanel = new JPanel(new BorderLayout());
+        orderPanel.setLayout(new BoxLayout(orderPanel,BoxLayout.Y_AXIS));  
+        orderPanel.setBounds(5, 5, 288, 270);  
+        orderPanel.setBackground(Color.WHITE);
+        
+
         //FRAME
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,9 +140,10 @@ public class AppMenu {
 
         food1.setBounds(0,0,400,60);
         food1.setLayout(null);
-        JTextArea tArea1 = new JTextArea("BBQ Pulled Pork Sandwich\nP180");
+        String name1 = "BBQ Pulled Pork Sandwich";
+        double P1 = 180.00;
+        JTextArea tArea1 = new JTextArea(name1 +"\nP"+ P1);
         tArea1.setBounds(5, 5, 300, 60);
-        tArea1.setEditable(false);
         tArea1.setOpaque(false);
         tArea1.setFocusable(false);
         tArea1.setFont(new Font("Comic Sans MS", 0, 20));
@@ -137,6 +155,17 @@ public class AppMenu {
         add1.setBorderPainted(false);
         add1.setFocusPainted(true);
         add1.setFocusable(false);
+        add1.addActionListener(e -> addToOrder(name1, P1));
+        add1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name1+"    P"+String.format("%.2f",P1));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove1 = new JButton();
         remove1.setIcon(resizedREMOVE);
         remove1.setBounds(320, 17, 24, 24);
@@ -150,7 +179,9 @@ public class AppMenu {
         
         food2.setBounds(0,60,400,60);
         food2.setLayout(null);
-        JTextArea tArea2 = new JTextArea("Pork Ribs (Full Rack)\nP550");
+        String name2 = "Pork Ribs (Full Rack)";
+        double P2 = 550.00;
+        JTextArea tArea2 = new JTextArea(name2 +"\nP"+ P2);
         tArea2.setBounds(5, 5, 300, 60);
         tArea2.setEditable(false);
         tArea2.setOpaque(false);
@@ -164,6 +195,17 @@ public class AppMenu {
         add2.setBorderPainted(false);
         add2.setFocusPainted(true);
         add2.setFocusable(false);
+        add2.addActionListener(e -> addToOrder(name2, P2));
+        add2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name2+"    P"+String.format("%.2f",P2));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove2 = new JButton();
         remove2.setIcon(resizedREMOVE);
         remove2.setBounds(320, 17, 24, 24);
@@ -177,7 +219,9 @@ public class AppMenu {
 
         food3.setBounds(0,120,400,60);
         food3.setLayout(null);
-        JTextArea tArea3 = new JTextArea("Grilled Pork Chop\nP320");
+        String name3 = "Grilled Pork Chop";
+        double P3 = 320.00;
+        JTextArea tArea3 = new JTextArea(name3 +"\nP"+ P3);
         tArea3.setBounds(5, 5, 300, 60);
         tArea3.setEditable(false);
         tArea3.setOpaque(false);
@@ -191,6 +235,17 @@ public class AppMenu {
         add3.setBorderPainted(false);
         add3.setFocusPainted(true);
         add3.setFocusable(false);
+        add3.addActionListener(e -> addToOrder(name3, P3));
+        add3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name3+"    P"+String.format("%.2f",P3));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove3 = new JButton();
         remove3.setIcon(resizedREMOVE);
         remove3.setBounds(320, 17, 24, 24);
@@ -204,7 +259,9 @@ public class AppMenu {
 
         food4.setBounds(0,180,400,60);
         food4.setLayout(null);
-        JTextArea tArea4 = new JTextArea("Pork Tenderloin Medallions\nP370");
+        String name4 = "Pork Tenderloin Medallions";
+        double P4 = 370.00;
+        JTextArea tArea4 = new JTextArea(name4 +"\nP"+ P4);
         tArea4.setBounds(5, 5, 300, 60);
         tArea4.setEditable(false);
         tArea4.setOpaque(false);
@@ -218,6 +275,17 @@ public class AppMenu {
         add4.setBorderPainted(false);
         add4.setFocusPainted(true);
         add4.setFocusable(false);
+        add4.addActionListener(e -> addToOrder(name4, P4));
+        add4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name4+"    P"+String.format("%.2f",P4));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove4 = new JButton();
         remove4.setIcon(resizedREMOVE);
         remove4.setBounds(320, 17, 24, 24);
@@ -231,7 +299,9 @@ public class AppMenu {
 
         food5.setBounds(0,240,400,60);
         food5.setLayout(null);
-        JTextArea tArea5 = new JTextArea("Pork Belly Bites\nP220");
+        String name5 = "Pork Belly Bites";
+        double P5 = 220.00;
+        JTextArea tArea5 = new JTextArea(name5 +"\nP"+ P5);
         tArea5.setBounds(5, 5, 300, 60);
         tArea5.setEditable(false);
         tArea5.setOpaque(false);
@@ -245,6 +315,17 @@ public class AppMenu {
         add5.setBorderPainted(false);
         add5.setFocusPainted(true);
         add5.setFocusable(false);
+        add5.addActionListener(e -> addToOrder(name5, P5));
+        add5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name5+"    P"+String.format("%.2f",P5));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove5 = new JButton();
         remove5.setIcon(resizedREMOVE);
         remove5.setBounds(320, 17, 24, 24);
@@ -258,7 +339,9 @@ public class AppMenu {
 
         food6.setBounds(0,300,400,60);
         food6.setLayout(null);
-        JTextArea tArea6 = new JTextArea("Sweet & Sour Pork Stir-Fry\nP250");
+        String name6 = "Sweet & Sour Pork Stir-Fry";
+        double P6 = 250.00;
+        JTextArea tArea6 = new JTextArea(name6 +"\nP"+ P6);
         tArea6.setBounds(5, 5, 300, 60);
         tArea6.setEditable(false);
         tArea6.setOpaque(false);
@@ -272,6 +355,17 @@ public class AppMenu {
         add6.setBorderPainted(false);
         add6.setFocusPainted(true);
         add6.setFocusable(false);
+        add6.addActionListener(e -> addToOrder(name6, P6));
+        add6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name6+"    P"+String.format("%.2f",P6));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove6 = new JButton();
         remove6.setIcon(resizedREMOVE);
         remove6.setBounds(320, 17, 24, 24);
@@ -285,7 +379,9 @@ public class AppMenu {
 
         food7.setBounds(0,360,400,60);
         food7.setLayout(null);
-        JTextArea tArea7 = new JTextArea("Crispy Pork Schnitzel\nP290");
+        String name7 = "Crispy Pork Schnitzel";
+        double P7 = 290.00;
+        JTextArea tArea7 = new JTextArea(name7 +"\nP"+ P7);
         tArea7.setBounds(5, 5, 300, 60);
         tArea7.setEditable(false);
         tArea7.setOpaque(false);
@@ -299,6 +395,17 @@ public class AppMenu {
         add7.setBorderPainted(false);
         add7.setFocusPainted(true);
         add7.setFocusable(false);
+        add7.addActionListener(e -> addToOrder(name7, P7));
+        add7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name7+"    P"+String.format("%.2f",P7));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove7 = new JButton();
         remove7.setIcon(resizedREMOVE);
         remove7.setBounds(320, 17, 24, 24);
@@ -312,7 +419,9 @@ public class AppMenu {
 
         food8.setBounds(0,420,400,60);
         food8.setLayout(null);
-        JTextArea tArea8 = new JTextArea("Pork Carnitas Tacos (3 pcs)\nP180");
+        String name8 = "Pork Carnitas Tacos (3 pcs)";
+        double P8 = 180.00;
+        JTextArea tArea8 = new JTextArea(name8 +"\nP"+ P8);
         tArea8.setBounds(5, 5, 300, 60);
         tArea8.setEditable(false);
         tArea8.setOpaque(false);
@@ -326,6 +435,17 @@ public class AppMenu {
         add8.setBorderPainted(false);
         add8.setFocusPainted(true);
         add8.setFocusable(false);
+        add8.addActionListener(e -> addToOrder(name8, P8));
+        add8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name8+"    P"+String.format("%.2f",P8));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove8 = new JButton();
         remove8.setIcon(resizedREMOVE);
         remove8.setBounds(320, 17, 24, 24);
@@ -339,7 +459,9 @@ public class AppMenu {
 
         food9.setBounds(0,480,400,60);
         food9.setLayout(null);
-        JTextArea tArea9 = new JTextArea("Pork Sausage Links (2 pcs)\nP150");
+        String name9 = "Pork Sausage Links (2 pcs)";
+        double P9 = 150.00;
+        JTextArea tArea9 = new JTextArea(name9 +"\nP"+ P9);
         tArea9.setBounds(5, 5, 300, 60);
         tArea9.setEditable(false);
         tArea9.setOpaque(false);
@@ -353,6 +475,17 @@ public class AppMenu {
         add9.setBorderPainted(false);
         add9.setFocusPainted(true);
         add9.setFocusable(false);
+        add9.addActionListener(e -> addToOrder(name9, P9));
+        add9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name9+"    P"+String.format("%.2f",P9));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove9 = new JButton();
         remove9.setIcon(resizedREMOVE);
         remove9.setBounds(320, 17, 24, 24);
@@ -366,7 +499,9 @@ public class AppMenu {
 
         food10.setBounds(0,540,400,60);
         food10.setLayout(null);
-        JTextArea tArea10 = new JTextArea("Stuffed Pork Loin\nP400");
+        String name10 = "Stuffed Pork Loin";
+        double P10 = 400.00;
+        JTextArea tArea10 = new JTextArea(name10 +"\nP"+ P10);
         tArea10.setBounds(5, 5, 300, 60);
         tArea10.setEditable(false);
         tArea10.setOpaque(false);
@@ -380,6 +515,17 @@ public class AppMenu {
         add10.setBorderPainted(false);
         add10.setFocusPainted(true);
         add10.setFocusable(false);
+        add10.addActionListener(e -> addToOrder(name10, P10));
+        add10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name10+"    P"+String.format("%.2f",P10));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.add(food);
+            }
+        });
         JButton remove10 = new JButton();
         remove10.setIcon(resizedREMOVE);
         remove10.setBounds(320, 17, 24, 24);
@@ -436,59 +582,6 @@ public class AppMenu {
         Title.setText("Total");
         Title.setFont(new Font("Helvetica", 0, 30));
         
-        JLabel order1 = new JLabel();
-        order1.setBounds(5, 5, 200, 60);
-        order1.setLayout(null);
-        order1.setOpaque(false);
-        order1.setHorizontalAlignment(JLabel.LEFT);
-        order1.setVerticalTextPosition(JLabel.CENTER);
-        order1.setText("order1");
-        order1.setFont(new Font("Helvetica", 0, 20));
-
-        JLabel price1 = new JLabel();
-        price1.setBounds(180, 5, 100, 60);
-        price1.setLayout(null);
-        price1.setOpaque(false);
-        price1.setHorizontalAlignment(JLabel.RIGHT);
-        price1.setVerticalTextPosition(JLabel.CENTER);
-        price1.setText("price1");
-        price1.setFont(new Font("Helvetica", 0, 18));
-
-        JLabel order2 = new JLabel();
-        order2.setBounds(5, 50, 200, 60);
-        order2.setLayout(null);
-        order2.setOpaque(false);
-        order2.setHorizontalAlignment(JLabel.LEFT);
-        order2.setVerticalTextPosition(JLabel.CENTER);
-        order2.setText("order2");
-        order2.setFont(new Font("Helvetica", 0, 20));
-
-        JLabel price2 = new JLabel();
-        price2.setBounds(180, 50, 100, 60);
-        price2.setLayout(null);
-        price2.setOpaque(false);
-        price2.setHorizontalAlignment(JLabel.RIGHT);
-        price2.setVerticalTextPosition(JLabel.CENTER);
-        price2.setText("price2");
-        price2.setFont(new Font("Helvetica", 0, 18));
-
-        JLabel order3 = new JLabel();
-        order3.setBounds(5, 95, 200, 60);
-        order3.setLayout(null);
-        order3.setOpaque(false);
-        order3.setHorizontalAlignment(JLabel.LEFT);
-        order3.setVerticalTextPosition(JLabel.CENTER);
-        order3.setText("order3");
-        order3.setFont(new Font("Helvetica", 0, 20));
-
-        JLabel price3 = new JLabel();
-        price3.setBounds(180, 95, 100, 60);
-        price3.setLayout(null);
-        price3.setOpaque(false);
-        price3.setHorizontalAlignment(JLabel.RIGHT);
-        price3.setVerticalTextPosition(JLabel.CENTER);
-        price3.setText("price3");
-        price3.setFont(new Font("Helvetica", 0, 18));
 
         JLabel Totalamt = new JLabel();
         Totalamt.setBounds(5, 5, 290, 60);
@@ -501,14 +594,14 @@ public class AppMenu {
         MatteBorder Totalamtbrdr = new MatteBorder(3,0,0,0,Color.GRAY);
         Totalamt.setBorder(Totalamtbrdr);
 
-        JLabel Totalprce = new JLabel();
-        Totalprce.setBounds(180, 5, 100, 60);
-        Totalprce.setLayout(null);
-        Totalprce.setOpaque(false);
-        Totalprce.setHorizontalAlignment(JLabel.RIGHT);
-        Totalprce.setVerticalTextPosition(JLabel.CENTER);
-        Totalprce.setText("P0.00");
-        Totalprce.setFont(new Font("Helvetica", 0, 20));
+        
+        //TOTAL AMOUNT
+        totalLabel.setBounds(180, 5, 100, 60);
+        totalLabel.setLayout(null);
+        totalLabel.setOpaque(false);
+        totalLabel.setHorizontalAlignment(JLabel.RIGHT);
+        totalLabel.setVerticalTextPosition(JLabel.CENTER);
+        totalLabel.setFont(new Font("Helvetica", Font.BOLD, 16));
 
         JButton plcOrder = new JButton();
         plcOrder.setBounds(160,75,120,40);
@@ -527,14 +620,10 @@ public class AppMenu {
 
 
         Tpanel.add(Title);
-        Orders.add(order1);
-        Orders.add(price1);
-        Orders.add(order2);
-        Orders.add(price2);
-        Orders.add(order3);
-        Orders.add(price3);
+        Orders.add(orderPanel);
+        Orders.add(orderDetailsArea);
         Tamount.add(Totalamt);
-        Tamount.add(Totalprce);
+        Tamount.add(totalLabel);
         Tamount.add(plcOrder);
         total.add(Tpanel);
         total.add(Orders);
