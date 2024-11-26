@@ -1,38 +1,57 @@
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.RoundRectangle2D;
+
 
 
 public class AppMenu {
-    protected ArrayList<String> menu;
-    protected ArrayList<Double> price;
+    ArrayList<String> allOrders = new ArrayList<>();
     private static double orderTotal = 0.0;
+    private int count1 = 1;
+    private int count2 = 1;
+    private int count3 = 1;
+    private int count4 = 1;
+    private int count5 = 1;
+    private int count6 = 1;
+    private int count7 = 1;
+    private int count8 = 1;
+    private int count9 = 1;
+    private int count10 = 1;
     private static JLabel totalLabel = new JLabel("Total: P0.00");
     
     public AppMenu(){
-        menu = new ArrayList<String>();
-        price = new ArrayList<Double>();
     }
-    private static JTextArea orderDetailsArea = new JTextArea();
     
-    private static void addToOrder(String item, double price) {
-        orderDetailsArea.append(item + " - P" + price + "\n");
+    private void addToOrder(String item, double price) {
         orderTotal += price;
         totalLabel.setText(String.format("%.2f", orderTotal));
     }
 
+    private void minusToOrder(String item, double price) {
+        if (price <= orderTotal) {
+            orderTotal -= price;
+        }
+        totalLabel.setText(String.format("%.2f", orderTotal));
+    }
+
+
+
     public void display(){
         JPanel orderPanel = new JPanel(new BorderLayout());
         orderPanel.setLayout(new BoxLayout(orderPanel,BoxLayout.Y_AXIS));  
-        orderPanel.setBounds(5, 5, 288, 270);  
         orderPanel.setBackground(Color.WHITE);
+
+        JScrollPane scroll = new JScrollPane(orderPanel);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBounds(5, 5, 288, 270);
+
+
         
 
         //FRAME
@@ -161,7 +180,7 @@ public class AppMenu {
             public void actionPerformed(ActionEvent f){
                 JLabel food = new JLabel();
                 food.setSize(300,60);
-                food.setText(name1+"    P"+String.format("%.2f",P1));
+                food.setText(name1+"    P"+String.format("%.2f",P1) + "("+count1+")");
                 food.setFont(new Font("Comic Sans MS", 0, 10));
                 orderPanel.add(food);
             }
@@ -173,6 +192,17 @@ public class AppMenu {
         remove1.setBorderPainted(false);
         remove1.setFocusPainted(true);
         remove1.setFocusable(false);
+        remove1.addActionListener(e -> minusToOrder(name1, P1));
+        remove1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f){
+                JLabel food = new JLabel();
+                food.setSize(300,60);
+                food.setText(name1+"    P"+String.format("%.2f",P1));
+                food.setFont(new Font("Comic Sans MS", 0, 10));
+                orderPanel.remove(food);
+            }
+        });
         food1.add(remove1);
         food1.add(add1);
         food1.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
@@ -620,8 +650,7 @@ public class AppMenu {
 
 
         Tpanel.add(Title);
-        Orders.add(orderPanel);
-        Orders.add(orderDetailsArea);
+        Orders.add(scroll);
         Tamount.add(Totalamt);
         Tamount.add(totalLabel);
         Tamount.add(plcOrder);
